@@ -19,8 +19,8 @@ const divBy5 = (n1 % 5 ===0) && (n2 % 5 === 0) && (n3 % 5 === 0) && (n4 % 5 === 
  const fuelAt75 = 23
 
 //55 milesper hour evaluation
-totalFuelForTrip55 = distance / fuelAt55
-fuelCostFor55Miles = totalFuelForTrip55 * fuelPerGallon
+let totalFuelForTrip55 = distance / fuelAt55
+let fuelCostFor55Miles = totalFuelForTrip55 * fuelPerGallon
 let lengthOfTripFor55Miles = Math.floor(distance / MilesPerHour55)
 console.log(`At 55 miles per hour you will need ${totalFuelForTrip55} gallon for the entire trip, the cost for the fuel is ${fuelCostFor55Miles}, so it will cover the fuel expenses. The trip will have ${lengthOfTripFor55Miles} hours.`)
 
@@ -37,3 +37,16 @@ let fuelCostFor75Miles = Math.floor(totalFuelForTrip75 * fuelPerGallon)
 let lengthOfTripFor75Miles = Math.floor(distance / MilesPerHour75)
 console.log(`At 75 miles per hour you will need ${totalFuelForTrip75} gallon for the entire trip, the cost for the fuel is ${fuelCostFor75Miles}, so it will NOT cover the fuel expenses. The trip will have ${lengthOfTripFor75Miles} hours.`)
 
+
+//Part 3: Future Exploration
+function futureExploration(fuelCostFor55Miles, fuelCostFor60Miles, fuelCostFor75Miles){
+    if(fuelCostFor75Miles > fuelBudget) {
+        fuelCostFor75Miles = MilesPerHour55 
+        console.log(`At ${ MilesPerHour75} miles per hour, the cost exceeds the budget, So your speed has been changed to ${fuelCostFor75Miles} and the cost is now ${fuelCostFor55Miles}.`)
+    } else if (fuelCostFor60Miles < fuelBudget) {
+        console.log ("You are within the budget")
+    } else if(fuelCostFor55Miles < fuelBudget){
+        console.log ("You are within the budget")
+    }
+}
+futureExploration(fuelCostFor55Miles, fuelCostFor60Miles, fuelCostFor75Miles)
